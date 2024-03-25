@@ -24,9 +24,15 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(ArrayIndexOutOfBoundsException.class)
-    public ResponseEntity<APIErrorResponse> arrayIndexOutofBoundsException(ArrayIndexOutOfBoundsException ex) {
+    @ExceptionHandler( IndexOutOfBoundsException.class)
+    public ResponseEntity<APIErrorResponse> arrayIndexOutofBoundsException( IndexOutOfBoundsException ex) {
         APIErrorResponse response = new APIErrorResponse(ex.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<APIErrorResponse> IllegalStateExceptionException(IllegalStateException ex) {
+        APIErrorResponse response = new APIErrorResponse(ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }

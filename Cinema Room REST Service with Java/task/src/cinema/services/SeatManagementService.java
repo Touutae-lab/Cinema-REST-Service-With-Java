@@ -21,7 +21,8 @@ public class SeatManagementService {
     public SeatManagementService() {
         for (int i = 1; i <= 9; i++) {
             for (int j = 1; j <= 9; j++) {
-                this.seatsAvailability.put(new Seats(i, j, Optional.of(10)), true);
+                int value = i  <= 4 ? 10 : 8;
+                this.seatsAvailability.put(new Seats(i, j, Optional.of(value)), true);
             }
         }
     }
@@ -37,9 +38,13 @@ public class SeatManagementService {
         } else if (!available) {
             throw new AlreadyBookException("The ticket has been already purchased!");
         } else {
-            l
-            this.seatsAvailability.put(seats, false);
-            return seats;
+            for (Seats original : this.seatsAvailability.keySet()) {
+                if (original.equals(seats)) {
+                    this.seatsAvailability.put(original, false);
+                    return original;
+                }
+            }
         }
+        throw new IllegalStateException("The booking system is in an inconsistent state.");
     }
 }

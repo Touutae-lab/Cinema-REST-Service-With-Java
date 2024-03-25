@@ -27,8 +27,7 @@ public class SeatController {
     }
 
     @PostMapping("/purchase")
-    public ResponseEntity<Seats> purchaseSeat(@RequestBody Seats seats) {
-        Seats bookedSeat = seatManagementService.bookSeat(seats);
-        return ResponseEntity.ok(bookedSeat);
+    public Seats purchaseSeat(@RequestBody Seats seats) {
+        return seatManagementService.bookSeat(seats);
     }
 }
