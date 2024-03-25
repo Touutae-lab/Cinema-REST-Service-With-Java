@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CinemaTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-03-23T09:11:01" hostname="DESKTOP-ICJL25G" time="1.8">
+  <properties/>
+  <testcase name="start" classname="CinemaTests" time="1.8"/>
+  <system-out><![CDATA[?[1;31m
+Start test 1?[0m
+?[0;34m
+?[0m?[0;34m  .   ____          _            __ _ _
+?[0m?[0;34m /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+?[0m?[0;34m( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+?[0m?[0;34m \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+?[0m?[0;34m  '  |____| .__|_| |_|_| |_\__, | / / / /
+?[0m?[0;34m =========|_|==============|___/=/_/_/_/
+?[0m?[0;34m :: Spring Boot ::                (v3.0.2)
+?[0m?[0;34m
+?[0m?[0;34m2024-03-23T16:11:02.626+07:00 DEBUG 2044 --- [    Test worker] o.s.w.f.ServerHttpObservationFilter      : Filter 'serverHttpObservationFilter' configured for use
+?[0;34m2024-03-23T16:11:02.889+07:00  INFO 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+?[0m?[0;34m2024-03-23T16:11:02.890+07:00 DEBUG 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+?[0m?[0;34m2024-03-23T16:11:02.891+07:00 DEBUG 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+?[0m?[0;34m2024-03-23T16:11:02.892+07:00 DEBUG 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+?[0m?[0;34m2024-03-23T16:11:02.929+07:00 DEBUG 2044 --- [io-28852-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : 3 mappings in 'requestMappingHandlerMapping'
+?[0m?[0;34m2024-03-23T16:11:03.043+07:00 DEBUG 2044 --- [io-28852-exec-1] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+?[0m?[0;34m2024-03-23T16:11:03.067+07:00 DEBUG 2044 --- [io-28852-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+?[0m?[0;34m2024-03-23T16:11:03.070+07:00 DEBUG 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@29037d81
+?[0m?[0;34m2024-03-23T16:11:03.074+07:00 DEBUG 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@75709b73
+?[0m?[0;34m2024-03-23T16:11:03.075+07:00 DEBUG 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+?[0m?[0;34m2024-03-23T16:11:03.076+07:00  INFO 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 186 ms
+?[0m?[0;34m2024-03-23T16:11:03.097+07:00 DEBUG 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/seats", parameters={}
+?[0m?[0;34m2024-03-23T16:11:03.104+07:00 DEBUG 2044 --- [io-28852-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to cinema.controller.SeatController#getSeatServicesDetails()
+?[0m?[0;34m2024-03-23T16:11:03.136+07:00 DEBUG 2044 --- [io-28852-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+?[0m?[0;34m2024-03-23T16:11:03.137+07:00 DEBUG 2044 --- [io-28852-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [cinema.model.SeatRows@1b1afba9]
+?[0m?[0;34m2024-03-23T16:11:03.151+07:00 DEBUG 2044 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+?[0m?[1;31m
+Start test 2?[0m
+?[0;34m2024-03-23T16:11:03.163+07:00 DEBUG 2044 --- [io-28852-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/seats", parameters={}
+?[0m?[0;34m2024-03-23T16:11:03.163+07:00 DEBUG 2044 --- [io-28852-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to cinema.controller.SeatController#getSeatServicesDetails()
+?[0m?[0;34m2024-03-23T16:11:03.164+07:00 DEBUG 2044 --- [io-28852-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+?[0m?[0;34m2024-03-23T16:11:03.164+07:00 DEBUG 2044 --- [io-28852-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [cinema.model.SeatRows@67ad16ee]
+?[0m?[0;34m2024-03-23T16:11:03.165+07:00 DEBUG 2044 --- [io-28852-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-03-23T16:11:03.189+07:00 DEBUG 2044 --- [io-28852-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/actuator/shutdown", parameters={}
+2024-03-23T16:11:03.198+07:00 DEBUG 2044 --- [io-28852-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to []
+2024-03-23T16:11:03.204+07:00 DEBUG 2044 --- [io-28852-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2024-03-23T16:11:03.206+07:00 DEBUG 2044 --- [io-28852-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [org.springframework.boot.actuate.context.ShutdownEndpoint$ShutdownDescriptor@d78ea24]
+2024-03-23T16:11:03.207+07:00 DEBUG 2044 --- [io-28852-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
