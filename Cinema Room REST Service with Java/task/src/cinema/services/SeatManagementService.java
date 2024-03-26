@@ -1,7 +1,7 @@
 package cinema.services;
 
 import cinema.error.AlreadyBookException;
-import cinema.model.BookingTransactions;
+import cinema.model.BookingResult;
 import cinema.model.SeatRows;
 import cinema.model.Seats;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -13,6 +13,8 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+
+import static java.util.UUID.randomUUID;
 
 @Service
 @Scope(BeanDefinition.SCOPE_SINGLETON)
@@ -31,7 +33,7 @@ public class SeatManagementService {
         seatsList.sort(Comparator.comparingInt(Seats::row).thenComparingInt(Seats::column));
         return new SeatRows(9, 9, seatsList);
     }
-    public synchronized Seats bookSeat(Seats seats) throws IndexOutOfBoundsException, AlreadyBookException {
+  public synchronized BookingResult bookSeat(Seats seats) throws IndexOutOfBoundsException, AlreadyBookException {
         Boolean available = this.seatsAvailability.get(seats);
         if (available == null) {
             throw new IndexOutOfBoundsException("The number of a row or a column is out of bounds!");
@@ -41,7 +43,7 @@ public class SeatManagementService {
             for (Seats original : this.seatsAvailability.keySet()) {
                 if (original.equals(seats)) {
                     this.seatsAvailability.put(original, false);
-                    return original;
+                    return new BookingResult(randomUUID(), original);
                 }
             }
         }

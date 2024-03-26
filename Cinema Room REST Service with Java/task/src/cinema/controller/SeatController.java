@@ -1,12 +1,10 @@
 package cinema.controller;
 
-import cinema.error.AlreadyBookException;
-import cinema.error.NotFoundException;
+import cinema.model.BookingResult;
 import cinema.model.SeatRows;
 import cinema.model.Seats;
 import cinema.services.SeatManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,7 +25,7 @@ public class SeatController {
     }
 
     @PostMapping("/purchase")
-    public Seats purchaseSeat(@RequestBody Seats seats) {
+    public BookingResult purchaseSeat(@RequestBody Seats seats) {
         return seatManagementService.bookSeat(seats);
     }
 }
