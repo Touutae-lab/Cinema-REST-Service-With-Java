@@ -2,6 +2,7 @@ package cinema.controller;
 
 import cinema.error.AlreadyBookException;
 import cinema.error.InvalidTokenException;
+import cinema.error.WrongPasswordException;
 import cinema.model.APIErrorResponse;
 import cinema.error.NotFoundException;
 import org.springframework.http.HttpStatus;
@@ -40,5 +41,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<APIErrorResponse> InvalidTokenException(InvalidTokenException ex) {
         APIErrorResponse response = new APIErrorResponse(ex.getMessage());
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(WrongPasswordException.class)
+    public ResponseEntity<APIErrorResponse> wrongPasswordException(WrongPasswordException ex) {
+        APIErrorResponse response = new APIErrorResponse(ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
     }
 }

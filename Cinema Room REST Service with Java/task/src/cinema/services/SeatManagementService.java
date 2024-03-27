@@ -2,6 +2,7 @@ package cinema.services;
 
 import cinema.error.AlreadyBookException;
 import cinema.model.BookingResult;
+import cinema.model.IncomeReport;
 import cinema.model.SeatRows;
 import cinema.model.Seats;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,19 @@ public class SeatManagementService {
             }
         }
         throw new IllegalStateException("The booking system is in an inconsistent state.");
+    }
+
+    public synchronized IncomeReport incomeReportCalulate() {
+        int income = 0, purchased = 0, available = 0;
+        for (Seats original : this.seatsAvailability.keySet()) {
+            if (this.seatsAvailability.get(original)) {
+                available  += 1;
+            } else {
+                income += original.price().orElse(0);
+                purchased += 1;
+            }
+        }
+        return new IncomeReport(income, available, purchased);
     }
 
     public synchronized void returnSeat(Seats seats) {

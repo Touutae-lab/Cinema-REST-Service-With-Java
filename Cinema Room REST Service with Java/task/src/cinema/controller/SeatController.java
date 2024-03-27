@@ -1,16 +1,11 @@
 package cinema.controller;
 
-import cinema.model.BookingResult;
-import cinema.model.PurchaseTokenRequest;
-import cinema.model.SeatRows;
-import cinema.model.Seats;
+import cinema.error.WrongPasswordException;
+import cinema.model.*;
 import cinema.services.SeatManagementService;
 import cinema.services.TransactionTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -28,6 +23,15 @@ public class SeatController {
     @GetMapping("/seats")
     public SeatRows getSeatServicesDetails() {
         return this.seatManagementService.getSeats();
+    }
+
+    @GetMapping(value = "/stats")
+    public IncomeReport getSeatServicesDetails(@RequestParam(required = false) String password) {
+        final String correctPassword = "super_secret";
+        if (password == null || !password.equals(correctPassword)) {
+            throw new WrongPasswordException("The password is wrong!");
+        }
+        return this.seatManagementService.incomeReportCalulate();
     }
 
     @PostMapping("/purchase")
